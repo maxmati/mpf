@@ -11,7 +11,67 @@
 <div class="container-fluid">
     <div class="row">
         <div class="col-sm-3">
-            Form
+            <form>
+                <div class="row">
+                    <div class="col">
+                        Ball A
+                    </div>
+                    <div class="col">
+                        Ball B
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <label for="massBallA">Mass</label>
+                        <div class="input-group">
+                            <input type="text" class="form-control" id="massBallA" placeholder="5">
+                            <span class="input-group-text">kg</span>
+
+                        </div>
+                    </div>
+                    <div class="col">
+                        <label for="massBallB">Mass</label>
+                        <div class="input-group">
+                            <input type="text" class="form-control" id="massBallB" placeholder="5">
+                            <span class="input-group-text">kg</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <label for="velocityBallA">Velocity</label>
+                        <div class="input-group">
+                            <input type="text" class="form-control" id="velocityBallA" placeholder="10">
+                            <span class="input-group-text">m/s</span>
+
+                        </div>
+                    </div>
+                    <div class="col">
+                        <label for="velocityBallB">Velocity</label>
+                        <div class="input-group">
+                            <input type="text" class="form-control" id="velocityBallB" placeholder="10">
+                            <span class="input-group-text">m/s</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <label for="angleBallA">Angle</label>
+                        <input type="range" class="custom-range" min="0" max="360" id="angleBallA">
+                    </div>
+                    <div class="col">
+                        <label for="angleBallB">Angle</label>
+                        <input type="range" class="custom-range" min="0" max="360" id="angleBallB">
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col">
+                        <button type="button" class="btn btn-primary">Start</button>
+                        <button type="button" class="btn btn-danger">Reset simulation</button>
+                    </div>
+                </div>
+            </form>
         </div>
         <div id="canvas-holder" class="col-sm-9">
             <!-- Here will be inserted canvas (p5js)-->
