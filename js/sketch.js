@@ -19,6 +19,15 @@ function setup() {
 function draw() {
     background(backgroundColor);
 
+    if(balls.length === 2){
+        if(balls[0].intersects(balls[1])) {
+            balls[0].collide(balls[1]);
+            balls[1].collide(balls[0]);
+
+            balls[0].setNewAngles();
+            balls[1].setNewAngles();
+        }
+    }
     for (let i = 0; i < balls.length; i++) {
         balls[i].move();
         balls[i].show();
