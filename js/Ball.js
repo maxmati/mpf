@@ -28,6 +28,14 @@ class Ball{
         return (distanceBetweenBalls < this.r + other.r);
     }
 
+    isOutOfCanvas(cvnWidth, cvnHeight){
+        return this.isOutOfBorder(this.x , cvnWidth) || this.isOutOfBorder(this.y , cvnHeight);
+    }
+
+    isOutOfBorder(pos, borderSize) {
+        return pos + this.r >= borderSize || pos - this.r <= 0;
+    }
+
     static incrementAndGetName(){
         if (!this.latestId) {
             this.latestId = 1;

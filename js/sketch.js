@@ -28,8 +28,8 @@ function draw() {
 function mousePressed() {
     let ball = new Ball(mouseX, mouseY,50);
     for (let i = 0; i < balls.length; i++) {
-        if(ball.intersects(balls[i])){
-            alert("You cannot place a ball in this place. It overlaps other ball");
+        if(ball.intersects(balls[i]) || ball.isOutOfCanvas(width,height)){
+            alert("You cannot place a ball in this place. It overlaps other ball or is not within simulation place.");
             return;
         }
     }
