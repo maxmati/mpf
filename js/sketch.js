@@ -2,6 +2,7 @@ let cnv;
 let cnvWidth = 700;
 let cnvHeight = 700;
 let balls = [];
+let lines = [];
 
 let backgroundColor;
 
@@ -21,8 +22,8 @@ function draw() {
     for (let i = 0; i < balls.length; i++) {
         balls[i].move();
         balls[i].show();
+        lines[i].show();
     }
-
 }
 
 function mousePressed() {
@@ -39,6 +40,7 @@ function mousePressed() {
     if(balls.length < 2){
         ball.setName(Ball.incrementAndGetName());
         balls.push(ball);
+        lines.push(new Line(mouseX, mouseY, 0))
     }
 }
 
