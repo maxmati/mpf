@@ -44,8 +44,8 @@ class Ball{
     }
 
     move() {
-        this.x = this.x + this.v * Math.cos(this.angle);
-        this.y = this.y + this.v * Math.sin(this.angle);
+        this.x = this.x + this.v * Math.cos((this.angle*Math.PI) / 180);
+        this.y = this.y + this.v * Math.sin((this.angle*Math.PI) / 180);
     }
 
     static incrementAndGetName(){
