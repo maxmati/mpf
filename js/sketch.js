@@ -19,14 +19,17 @@ function draw() {
     background(backgroundColor);
 
     for (let i = 0; i < balls.length; i++) {
-        // bubbles[i].move();
+        balls[i].move();
         balls[i].show();
     }
 
 }
 
 function mousePressed() {
-    let ball = new Ball(mouseX, mouseY,50);
+    if(balls.length===2){
+        return;
+    }
+    let ball = new Ball(mouseX, mouseY);
     for (let i = 0; i < balls.length; i++) {
         if(ball.intersects(balls[i]) || ball.isOutOfCanvas(width,height)){
             alert("You cannot place a ball in this place. It overlaps other ball or is not within simulation place.");
@@ -37,4 +40,9 @@ function mousePressed() {
         ball.setName(Ball.incrementAndGetName());
         balls.push(ball);
     }
+}
+
+function initializeAllBalls(input_data) {
+    balls[0].init(input_data.a);
+    balls[1].init(input_data.b);
 }
