@@ -22,8 +22,12 @@ function draw() {
     for (let i = 0; i < balls.length; i++) {
         balls[i].move();
         balls[i].show();
+    }
+
+    for (let i = 0; i < lines.length; i++) {
         lines[i].show();
     }
+
 }
 
 function mousePressed() {
@@ -50,4 +54,8 @@ function initializeAllBalls(input_data) {
 function clearAllBalls(){
     balls = [];
     Ball.resetNameIncrementor()
+}
+
+function clearAllLines(){
+  lines = [];
 }

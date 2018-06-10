@@ -69,7 +69,7 @@ function getBAngle() {
     $('#angleBallB').change(function () {
       let l = lines[1];
       if(l !== undefined){
-        l.setAngle(getAAngle())
+        l.setAngle(getBAngle())
       }
     });
   });
