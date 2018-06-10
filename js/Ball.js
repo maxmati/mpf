@@ -56,4 +56,7 @@ class Ball{
         }
         return String.fromCharCode(64 + this.latestId);
     }
+    static resetNameIncrementor(){
+        this.latestId = 0;
+    }
 }

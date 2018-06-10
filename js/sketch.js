@@ -46,3 +46,7 @@ function initializeAllBalls(input_data) {
     balls[0].init(input_data.a);
     balls[1].init(input_data.b);
 }
+function clearAllBalls(){
+    balls = [];
+    Ball.resetNameIncrementor()
+}
