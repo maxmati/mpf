@@ -1,17 +1,16 @@
-let txtSize = 24;
+let txtSize = 20;
 
 class Ball{
-    constructor(x,y,r,m){
+    constructor(x,y,m,r=30){
         this.x = x;
         this.y = y;
         this.r = r;
         this.m = m;
         this.col = color('#FFFF19');
-        this.name = Ball.incrementAndGetName();
     }
 
-    setColor(col){
-        this.col = col;
+    setName(name){
+        this.name = name;
     }
 
     show() {
@@ -22,6 +21,11 @@ class Ball{
         textAlign(CENTER);
         fill(0);
         text(this.name,this.x ,this.y + txtSize/4);
+    }
+
+    intersects(other) {
+        let distanceBetweenBalls = dist(this.x, this.y, other.x, other.y);
+        return (distanceBetweenBalls < this.r + other.r);
     }
 
     static incrementAndGetName(){

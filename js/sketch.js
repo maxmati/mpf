@@ -26,8 +26,15 @@ function draw() {
 }
 
 function mousePressed() {
+    let ball = new Ball(mouseX, mouseY,50);
+    for (let i = 0; i < balls.length; i++) {
+        if(ball.intersects(balls[i])){
+            alert("You cannot place a ball in this place. It overlaps other ball");
+            return;
+        }
+    }
     if(balls.length < 2){
-        let ball = new Ball(mouseX, mouseY,50,50)
+        ball.setName(Ball.incrementAndGetName());
         balls.push(ball);
     }
 }
