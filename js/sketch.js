@@ -40,10 +40,9 @@ function mousePressed() {
     if(balls.length < 2){
         ball.setName(Ball.incrementAndGetName());
         balls.push(ball);
-        lines.push(new Line(mouseX, mouseY, 0))
+        lines.push(new Line(mouseX, mouseY, balls.length === 0 ? getAAngle() : getBAngle()));
     }
 }
-
 function initializeAllBalls(input_data) {
     balls[0].init(input_data.a);
     balls[1].init(input_data.b);

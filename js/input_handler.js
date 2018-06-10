@@ -1,3 +1,11 @@
+function getAAngle() {
+  return parseFloat($('#angleBallA').val())
+}
+
+function getBAngle() {
+  return parseFloat($('#angleBallB').val())
+}
+
 (function () {
 
   function disable_inputs() {
@@ -33,12 +41,12 @@
         a: {
           mass: parseFloat($('#massBallA').val()),
           velocity: parseFloat($('#velocityBallA').val()),
-          angle: parseFloat($('#angleBallA').val()),
+          angle: getAAngle(),
         },
         b: {
           mass: parseFloat($('#massBallB').val()),
           velocity: parseFloat($('#velocityBallB').val()),
-          angle: parseFloat($('#angleBallB').val()),
+          angle: getBAngle(),
         },
       };
 
@@ -49,6 +57,20 @@
     $('#resetButton').click(function () {
       reset_simulation();
       enable_inputs();
+    });
+
+    $('#angleBallA').change(function () {
+      let l = lines[0];
+      if(l !== undefined){
+        l.setAngle(getAAngle())
+      }
+    });
+
+    $('#angleBallB').change(function () {
+      let l = lines[1];
+      if(l !== undefined){
+        l.setAngle(getAAngle())
+      }
     });
   });
 
