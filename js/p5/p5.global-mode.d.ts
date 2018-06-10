@@ -2054,7 +2054,7 @@ declare function loop(): void;
  *   fill(), stroke(), tint(), strokeWeight(), 
  *   strokeCap(), strokeJoin(), imageMode(), 
  *   rectMode(), ellipseMode(), colorMode(), 
- *   textAlign(), textFont(), textMode(), textSize(), 
+ *   textAlign(), textFont(), textMode(), txtSize(),
  *   textLeading().
  *
  */
@@ -2077,7 +2077,7 @@ declare function push(): void;
  *   fill(), stroke(), tint(), strokeWeight(), 
  *   strokeCap(), strokeJoin(), imageMode(), 
  *   rectMode(), ellipseMode(), colorMode(), 
- *   textAlign(), textFont(), textMode(), textSize(), 
+ *   textAlign(), textFont(), textMode(), txtSize(),
  *   textLeading().
  *
  */
@@ -4962,7 +4962,7 @@ declare function loadFont(path: string, callback?: Function, onError?: Function)
  *   parameters. A default font will be used unless a 
  *   font is set with the textFont() function and a 
  *   default size will be used unless a font is set 
- *   with textSize(). Change the color of the text with 
+ *   with txtSize(). Change the color of the text with
  *   the fill() function. Change the outline of the 
  *   text with the stroke() and strokeWeight() 
  *   functions.  The text displays in relation to the 

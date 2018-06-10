@@ -1,8 +1,7 @@
 let cnv;
 let cnvWidth = 700;
 let cnvHeight = 700;
-let ball_1;
-let ball_2;
+let balls = [];
 
 let backgroundColor;
 
@@ -13,12 +12,22 @@ function setup() {
 
     backgroundColor = color('#0B6623');
 
-    ball_1 = new Ball(350,350,50,50);
+    textSize(txtSize);
 }
 
 function draw() {
     background(backgroundColor);
 
-    ball_1.show();
-    // ball_2.show();
+    for (let i = 0; i < balls.length; i++) {
+        // bubbles[i].move();
+        balls[i].show();
+    }
+
+}
+
+function mousePressed() {
+    if(balls.length < 2){
+        let ball = new Ball(mouseX, mouseY,50,50)
+        balls.push(ball);
+    }
 }

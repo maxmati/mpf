@@ -2767,7 +2767,7 @@ module.exports={
                 "type": "Object"
             },
             "example": [
-                "\n<div><code>\nvar eq;\nvar band_names;\nvar band_index;\n\nvar soundFile, play;\n\nfunction preload() {\n  soundFormats('mp3', 'ogg');\n  soundFile = loadSound('assets/beat');\n}\n\nfunction setup() {\n  eq = new p5.EQ(3);\n  soundFile.disconnect();\n  eq.process(soundFile);\n\n  band_names = ['lows','mids','highs'];\n  band_index = 0;\n  play = false;\n  textAlign(CENTER);\n}\n\nfunction draw() {\n  background(30);\n  noStroke();\n  fill(255);\n  text('click to kill',50,25);\n\n  fill(255, 40, 255);\n  textSize(26);\n  text(band_names[band_index],50,55);\n\n  fill(255);\n  textSize(9);\n  text('space = play/pause',50,80);\n}\n\n//If mouse is over canvas, cycle to the next band and kill the frequency\nfunction mouseClicked() {\n  for (var i = 0; i < eq.bands.length; i++) {\n    eq.bands[i].gain(0);\n  }\n  eq.bands[band_index].gain(-40);\n  if (mouseX > 0 && mouseX < width && mouseY < height && mouseY > 0) {\n    band_index === 2 ? band_index = 0 : band_index++;\n  }\n}\n\n//use space bar to trigger play / pause\nfunction keyPressed() {\n  if (key===' ') {\n    play = !play\n    play ? soundFile.loop() : soundFile.pause();\n  }\n}\n</code></div>"
+                "\n<div><code>\nvar eq;\nvar band_names;\nvar band_index;\n\nvar soundFile, play;\n\nfunction preload() {\n  soundFormats('mp3', 'ogg');\n  soundFile = loadSound('assets/beat');\n}\n\nfunction setup() {\n  eq = new p5.EQ(3);\n  soundFile.disconnect();\n  eq.process(soundFile);\n\n  band_names = ['lows','mids','highs'];\n  band_index = 0;\n  play = false;\n  textAlign(CENTER);\n}\n\nfunction draw() {\n  background(30);\n  noStroke();\n  fill(255);\n  text('click to kill',50,25);\n\n  fill(255, 40, 255);\n  txtSize(26);\n  text(band_names[band_index],50,55);\n\n  fill(255);\n  txtSize(9);\n  text('space = play/pause',50,80);\n}\n\n//If mouse is over canvas, cycle to the next band and kill the frequency\nfunction mouseClicked() {\n  for (var i = 0; i < eq.bands.length; i++) {\n    eq.bands[i].gain(0);\n  }\n  eq.bands[band_index].gain(-40);\n  if (mouseX > 0 && mouseX < width && mouseY < height && mouseY > 0) {\n    band_index === 2 ? band_index = 0 : band_index++;\n  }\n}\n\n//use space bar to trigger play / pause\nfunction keyPressed() {\n  if (key===' ') {\n    play = !play\n    play ? soundFile.loop() : soundFile.pause();\n  }\n}\n</code></div>"
             ]
         },
         "p5.Panner3D": {
@@ -6202,7 +6202,7 @@ module.exports={
             "type": "Integer",
             "readonly": "",
             "example": [
-                "\n  <div><code>\nfunction setup() {\n  frameRate(30);\n  textSize(20);\n  textSize(30);\n  textAlign(CENTER);\n}\n\nfunction draw() {\n  background(200);\n  text(frameCount, width / 2, height / 2);\n}\n</code></div>"
+                "\n  <div><code>\nfunction setup() {\n  frameRate(30);\n  txtSize(20);\n  txtSize(30);\n  textAlign(CENTER);\n}\n\nfunction draw() {\n  background(200);\n  text(frameCount, width / 2, height / 2);\n}\n</code></div>"
             ],
             "alt": "numbers rapidly counting upward with frame count set to 30.",
             "class": "p5",
@@ -7277,7 +7277,7 @@ module.exports={
         {
             "file": "src/core/structure.js",
             "line": 132,
-            "description": "<p>The push() function saves the current drawing style settings and\ntransformations, while pop() restores these settings. Note that these\nfunctions are always used together. They allow you to change the style\nand transformation settings and later return to what you had. When a new\nstate is started with push(), it builds on the current style and transform\ninformation. The push() and pop() functions can be embedded to provide\nmore control. (See the second example for a demonstration.)\n<br><br>\npush() stores information related to the current transformation state\nand style settings controlled by the following functions: fill(),\nstroke(), tint(), strokeWeight(), strokeCap(), strokeJoin(),\nimageMode(), rectMode(), ellipseMode(), colorMode(), textAlign(),\ntextFont(), textMode(), textSize(), textLeading().</p>\n",
+            "description": "<p>The push() function saves the current drawing style settings and\ntransformations, while pop() restores these settings. Note that these\nfunctions are always used together. They allow you to change the style\nand transformation settings and later return to what you had. When a new\nstate is started with push(), it builds on the current style and transform\ninformation. The push() and pop() functions can be embedded to provide\nmore control. (See the second example for a demonstration.)\n<br><br>\npush() stores information related to the current transformation state\nand style settings controlled by the following functions: fill(),\nstroke(), tint(), strokeWeight(), strokeCap(), strokeJoin(),\nimageMode(), rectMode(), ellipseMode(), colorMode(), textAlign(),\ntextFont(), textMode(), txtSize(), textLeading().</p>\n",
             "itemtype": "method",
             "name": "push",
             "example": [
@@ -7291,7 +7291,7 @@ module.exports={
         {
             "file": "src/core/structure.js",
             "line": 197,
-            "description": "<p>The push() function saves the current drawing style settings and\ntransformations, while pop() restores these settings. Note that these\nfunctions are always used together. They allow you to change the style\nand transformation settings and later return to what you had. When a new\nstate is started with push(), it builds on the current style and transform\ninformation. The push() and pop() functions can be embedded to provide\nmore control. (See the second example for a demonstration.)\n<br><br>\npush() stores information related to the current transformation state\nand style settings controlled by the following functions: fill(),\nstroke(), tint(), strokeWeight(), strokeCap(), strokeJoin(),\nimageMode(), rectMode(), ellipseMode(), colorMode(), textAlign(),\ntextFont(), textMode(), textSize(), textLeading().</p>\n",
+            "description": "<p>The push() function saves the current drawing style settings and\ntransformations, while pop() restores these settings. Note that these\nfunctions are always used together. They allow you to change the style\nand transformation settings and later return to what you had. When a new\nstate is started with push(), it builds on the current style and transform\ninformation. The push() and pop() functions can be embedded to provide\nmore control. (See the second example for a demonstration.)\n<br><br>\npush() stores information related to the current transformation state\nand style settings controlled by the following functions: fill(),\nstroke(), tint(), strokeWeight(), strokeCap(), strokeJoin(),\nimageMode(), rectMode(), ellipseMode(), colorMode(), textAlign(),\ntextFont(), textMode(), txtSize(), textLeading().</p>\n",
             "itemtype": "method",
             "name": "pop",
             "example": [
@@ -8684,7 +8684,7 @@ module.exports={
             "type": "String",
             "readonly": "",
             "example": [
-                "\n<div><code>\n// Click any key to display it!\n// (Not Guaranteed to be Case Sensitive)\nfunction setup() {\n  fill(245, 123, 158);\n  textSize(50);\n}\n\nfunction draw() {\n  background(200);\n  text(key, 33, 65); // Display last key pressed.\n}\n</code></div>"
+                "\n<div><code>\n// Click any key to display it!\n// (Not Guaranteed to be Case Sensitive)\nfunction setup() {\n  fill(245, 123, 158);\n  txtSize(50);\n}\n\nfunction draw() {\n  background(200);\n  text(key, 33, 65); // Display last key pressed.\n}\n</code></div>"
             ],
             "alt": "canvas displays any key value that is pressed in pink font.",
             "class": "p5",
@@ -12758,7 +12758,7 @@ module.exports={
                 "type": "Number"
             },
             "example": [
-                "\n<div><code>\nfunction setup() {\n  // Change the elements in the array and run the sketch\n  // to show how max() works!\n  var numArray = [2, 1, 5, 4, 8, 9];\n  fill(0);\n  noStroke();\n  text('Array Elements', 0, 10);\n  // Draw all numbers in the array\n  var spacing = 15;\n  var elemsY = 25;\n  for (var i = 0; i < numArray.length; i++) {\n    text(numArray[i], i * spacing, elemsY);\n  }\n  var maxX = 33;\n  var maxY = 80;\n  // Draw the Maximum value in the array.\n  textSize(32);\n  text(max(numArray), maxX, maxY);\n}\n</code></div>"
+                "\n<div><code>\nfunction setup() {\n  // Change the elements in the array and run the sketch\n  // to show how max() works!\n  var numArray = [2, 1, 5, 4, 8, 9];\n  fill(0);\n  noStroke();\n  text('Array Elements', 0, 10);\n  // Draw all numbers in the array\n  var spacing = 15;\n  var elemsY = 25;\n  for (var i = 0; i < numArray.length; i++) {\n    text(numArray[i], i * spacing, elemsY);\n  }\n  var maxX = 33;\n  var maxY = 80;\n  // Draw the Maximum value in the array.\n  txtSize(32);\n  text(max(numArray), maxX, maxY);\n}\n</code></div>"
             ],
             "alt": "Small text at top reads: Array Elements 2 1 5 4 8 9. Large text at center: 9",
             "class": "p5",
@@ -12811,7 +12811,7 @@ module.exports={
                 "type": "Number"
             },
             "example": [
-                "\n<div><code>\nfunction setup() {\n  // Change the elements in the array and run the sketch\n  // to show how min() works!\n  var numArray = [2, 1, 5, 4, 8, 9];\n  fill(0);\n  noStroke();\n  text('Array Elements', 0, 10);\n  // Draw all numbers in the array\n  var spacing = 15;\n  var elemsY = 25;\n  for (var i = 0; i < numArray.length; i++) {\n    text(numArray[i], i * spacing, elemsY);\n  }\n  var maxX = 33;\n  var maxY = 80;\n  // Draw the Minimum value in the array.\n  textSize(32);\n  text(min(numArray), maxX, maxY);\n}\n</code></div>"
+                "\n<div><code>\nfunction setup() {\n  // Change the elements in the array and run the sketch\n  // to show how min() works!\n  var numArray = [2, 1, 5, 4, 8, 9];\n  fill(0);\n  noStroke();\n  text('Array Elements', 0, 10);\n  // Draw all numbers in the array\n  var spacing = 15;\n  var elemsY = 25;\n  for (var i = 0; i < numArray.length; i++) {\n    text(numArray[i], i * spacing, elemsY);\n  }\n  var maxX = 33;\n  var maxY = 80;\n  // Draw the Minimum value in the array.\n  txtSize(32);\n  text(min(numArray), maxX, maxY);\n}\n</code></div>"
             ],
             "alt": "Small text at top reads: Array Elements 2 1 5 4 8 9. Large text at center: 1",
             "class": "p5",
@@ -12881,7 +12881,7 @@ module.exports={
                 "type": "Number"
             },
             "example": [
-                "\n<div><code>\nfunction draw() {\n  background(200);\n  var currentNum = mouseX;\n  var lowerBound = 0;\n  var upperBound = width; //100;\n  var normalized = norm(currentNum, lowerBound, upperBound);\n  var lineY = 70;\n  line(0, lineY, width, lineY);\n  //Draw an ellipse mapped to the non-normalized value.\n  noStroke();\n  fill(50);\n  var s = 7; // ellipse size\n  ellipse(currentNum, lineY, s, s);\n\n  // Draw the guide\n  var guideY = lineY + 15;\n  text('0', 0, guideY);\n  textAlign(RIGHT);\n  text('100', width, guideY);\n\n  // Draw the normalized value\n  textAlign(LEFT);\n  fill(0);\n  textSize(32);\n  var normalY = 40;\n  var normalX = 20;\n  text(normalized, normalX, normalY);\n}\n</code></div>"
+                "\n<div><code>\nfunction draw() {\n  background(200);\n  var currentNum = mouseX;\n  var lowerBound = 0;\n  var upperBound = width; //100;\n  var normalized = norm(currentNum, lowerBound, upperBound);\n  var lineY = 70;\n  line(0, lineY, width, lineY);\n  //Draw an ellipse mapped to the non-normalized value.\n  noStroke();\n  fill(50);\n  var s = 7; // ellipse size\n  ellipse(currentNum, lineY, s, s);\n\n  // Draw the guide\n  var guideY = lineY + 15;\n  text('0', 0, guideY);\n  textAlign(RIGHT);\n  text('100', width, guideY);\n\n  // Draw the normalized value\n  textAlign(LEFT);\n  fill(0);\n  txtSize(32);\n  var normalY = 40;\n  var normalX = 20;\n  text(normalized, normalX, normalY);\n}\n</code></div>"
             ],
             "alt": "ellipse moves with mouse. 0 shown left & 100 right and updating values center",
             "class": "p5",
@@ -14613,7 +14613,7 @@ module.exports={
             "name": "textAlign",
             "chainable": 1,
             "example": [
-                "\n<div>\n<code>\ntextSize(16);\ntextAlign(RIGHT);\ntext('ABCD', 50, 30);\ntextAlign(CENTER);\ntext('EFGH', 50, 50);\ntextAlign(LEFT);\ntext('IJKL', 50, 70);\n</code>\n</div>"
+                "\n<div>\n<code>\ntxtSize(16);\ntextAlign(RIGHT);\ntext('ABCD', 50, 30);\ntextAlign(CENTER);\ntext('EFGH', 50, 50);\ntextAlign(LEFT);\ntext('IJKL', 50, 70);\n</code>\n</div>"
             ],
             "alt": "Letters ABCD displayed at top right, EFGH at center and IJKL at bottom left.",
             "class": "p5",
@@ -14655,7 +14655,7 @@ module.exports={
             "name": "textLeading",
             "chainable": 1,
             "example": [
-                "\n<div>\n<code>\n// Text to display. The \"\\n\" is a \"new line\" character\nvar lines = 'L1\\nL2\\nL3';\ntextSize(12);\n\ntextLeading(10); // Set leading to 10\ntext(lines, 10, 25);\n\ntextLeading(20); // Set leading to 20\ntext(lines, 40, 25);\n\ntextLeading(30); // Set leading to 30\ntext(lines, 70, 25);\n</code>\n</div>"
+                "\n<div>\n<code>\n// Text to display. The \"\\n\" is a \"new line\" character\nvar lines = 'L1\\nL2\\nL3';\ntxtSize(12);\n\ntextLeading(10); // Set leading to 10\ntext(lines, 10, 25);\n\ntextLeading(20); // Set leading to 20\ntext(lines, 40, 25);\n\ntextLeading(30); // Set leading to 30\ntext(lines, 70, 25);\n</code>\n</div>"
             ],
             "alt": "set L1 L2 & L3 displayed vertically 3 times. spacing increases for each set",
             "class": "p5",
@@ -14688,10 +14688,10 @@ module.exports={
             "line": 98,
             "description": "<p>Sets/gets the current font size. This size will be used in all subsequent\ncalls to the text() function. Font size is measured in pixels.</p>\n",
             "itemtype": "method",
-            "name": "textSize",
+            "name": "txtSize",
             "chainable": 1,
             "example": [
-                "\n<div>\n<code>\ntextSize(12);\ntext('Font Size 12', 10, 30);\ntextSize(14);\ntext('Font Size 14', 10, 60);\ntextSize(16);\ntext('Font Size 16', 10, 90);\n</code>\n</div>"
+                "\n<div>\n<code>\ntxtSize(12);\ntext('Font Size 12', 10, 30);\ntxtSize(14);\ntext('Font Size 14', 10, 60);\ntxtSize(16);\ntext('Font Size 16', 10, 90);\n</code>\n</div>"
             ],
             "alt": "Font Size 12 displayed small, Font Size 14 medium & Font Size 16 large",
             "class": "p5",
@@ -14727,7 +14727,7 @@ module.exports={
             "name": "textStyle",
             "chainable": 1,
             "example": [
-                "\n<div>\n<code>\nstrokeWeight(0);\ntextSize(12);\ntextStyle(NORMAL);\ntext('Font Style Normal', 10, 30);\ntextStyle(ITALIC);\ntext('Font Style Italic', 10, 60);\ntextStyle(BOLD);\ntext('Font Style Bold', 10, 90);\n</code>\n</div>"
+                "\n<div>\n<code>\nstrokeWeight(0);\ntxtSize(12);\ntextStyle(NORMAL);\ntext('Font Style Normal', 10, 30);\ntextStyle(ITALIC);\ntext('Font Style Italic', 10, 60);\ntextStyle(BOLD);\ntext('Font Style Bold', 10, 90);\n</code>\n</div>"
             ],
             "alt": "words Font Style Normal displayed normally, Italic in italic and bold in bold",
             "class": "p5",
@@ -14773,7 +14773,7 @@ module.exports={
                 "type": "Number"
             },
             "example": [
-                "\n<div>\n<code>\ntextSize(28);\n\nvar aChar = 'P';\nvar cWidth = textWidth(aChar);\ntext(aChar, 0, 40);\nline(cWidth, 0, cWidth, 50);\n\nvar aString = 'p5.js';\nvar sWidth = textWidth(aString);\ntext(aString, 0, 85);\nline(sWidth, 50, sWidth, 100);\n</code>\n</div>"
+                "\n<div>\n<code>\ntxtSize(28);\n\nvar aChar = 'P';\nvar cWidth = textWidth(aChar);\ntext(aChar, 0, 40);\nline(cWidth, 0, cWidth, 50);\n\nvar aString = 'p5.js';\nvar sWidth = textWidth(aString);\ntext(aString, 0, 85);\nline(sWidth, 50, sWidth, 100);\n</code>\n</div>"
             ],
             "alt": "Letter P and p5.js are displayed with vertical lines at end. P is wide",
             "class": "p5",
@@ -14791,7 +14791,7 @@ module.exports={
                 "type": "Number"
             },
             "example": [
-                "\n<div>\n<code>\nvar base = height * 0.75;\nvar scalar = 0.8; // Different for each font\n\ntextSize(32); // Set initial text size\nvar asc = textAscent() * scalar; // Calc ascent\nline(0, base - asc, width, base - asc);\ntext('dp', 0, base); // Draw text on baseline\n\ntextSize(64); // Increase text size\nasc = textAscent() * scalar; // Recalc ascent\nline(40, base - asc, width, base - asc);\ntext('dp', 40, base); // Draw text on baseline\n</code>\n</div>"
+                "\n<div>\n<code>\nvar base = height * 0.75;\nvar scalar = 0.8; // Different for each font\n\ntxtSize(32); // Set initial text size\nvar asc = textAscent() * scalar; // Calc ascent\nline(0, base - asc, width, base - asc);\ntext('dp', 0, base); // Draw text on baseline\n\ntxtSize(64); // Increase text size\nasc = textAscent() * scalar; // Recalc ascent\nline(40, base - asc, width, base - asc);\ntext('dp', 40, base); // Draw text on baseline\n</code>\n</div>"
             ],
             "class": "p5",
             "module": "Typography",
@@ -14808,7 +14808,7 @@ module.exports={
                 "type": "Number"
             },
             "example": [
-                "\n<div>\n<code>\nvar base = height * 0.75;\nvar scalar = 0.8; // Different for each font\n\ntextSize(32); // Set initial text size\nvar desc = textDescent() * scalar; // Calc ascent\nline(0, base + desc, width, base + desc);\ntext('dp', 0, base); // Draw text on baseline\n\ntextSize(64); // Increase text size\ndesc = textDescent() * scalar; // Recalc ascent\nline(40, base + desc, width, base + desc);\ntext('dp', 40, base); // Draw text on baseline\n</code>\n</div>"
+                "\n<div>\n<code>\nvar base = height * 0.75;\nvar scalar = 0.8; // Different for each font\n\ntxtSize(32); // Set initial text size\nvar desc = textDescent() * scalar; // Calc ascent\nline(0, base + desc, width, base + desc);\ntext('dp', 0, base); // Draw text on baseline\n\ntxtSize(64); // Increase text size\ndesc = textDescent() * scalar; // Recalc ascent\nline(40, base + desc, width, base + desc);\ntext('dp', 40, base); // Draw text on baseline\n</code>\n</div>"
             ],
             "class": "p5",
             "module": "Typography",
@@ -14852,7 +14852,7 @@ module.exports={
                 "type": "p5.Font"
             },
             "example": [
-                "\n\n<p>Calling loadFont() inside preload() guarantees that the load\noperation will have completed before setup() and draw() are called.</p>\n\n<div><code>\nvar myFont;\nfunction preload() {\n  myFont = loadFont('assets/AvenirNextLTPro-Demi.otf');\n}\n\nfunction setup() {\n  fill('#ED225D');\n  textFont(myFont);\n  textSize(36);\n  text('p5*js', 10, 50);\n}\n</code></div>\n\nOutside of preload(), you may supply a callback function to handle the\nobject:\n\n<div><code>\nfunction setup() {\n  loadFont('assets/AvenirNextLTPro-Demi.otf', drawText);\n}\n\nfunction drawText(font) {\n  fill('#ED225D');\n  textFont(font, 36);\n  text('p5*js', 10, 50);\n}\n</code></div>\n\n<p>You can also use the string name of the font to style other HTML\nelements.</p>\n\n<div><code>\nfunction preload() {\n  loadFont('assets/Avenir.otf');\n}\n\nfunction setup() {\n  var myDiv = createDiv('hello there');\n  myDiv.style('font-family', 'Avenir');\n}\n</code></div>"
+                "\n\n<p>Calling loadFont() inside preload() guarantees that the load\noperation will have completed before setup() and draw() are called.</p>\n\n<div><code>\nvar myFont;\nfunction preload() {\n  myFont = loadFont('assets/AvenirNextLTPro-Demi.otf');\n}\n\nfunction setup() {\n  fill('#ED225D');\n  textFont(myFont);\n  txtSize(36);\n  text('p5*js', 10, 50);\n}\n</code></div>\n\nOutside of preload(), you may supply a callback function to handle the\nobject:\n\n<div><code>\nfunction setup() {\n  loadFont('assets/AvenirNextLTPro-Demi.otf', drawText);\n}\n\nfunction drawText(font) {\n  fill('#ED225D');\n  textFont(font, 36);\n  text('p5*js', 10, 50);\n}\n</code></div>\n\n<p>You can also use the string name of the font to style other HTML\nelements.</p>\n\n<div><code>\nfunction preload() {\n  loadFont('assets/Avenir.otf');\n}\n\nfunction setup() {\n  var myDiv = createDiv('hello there');\n  myDiv.style('font-family', 'Avenir');\n}\n</code></div>"
             ],
             "alt": "p5*js in p5's theme dark pink\np5*js in p5's theme dark pink",
             "class": "p5",
@@ -14862,7 +14862,7 @@ module.exports={
         {
             "file": "src/typography/loading_displaying.js",
             "line": 143,
-            "description": "<p>Draws text to the screen. Displays the information specified in the first\nparameter on the screen in the position specified by the additional\nparameters. A default font will be used unless a font is set with the\ntextFont() function and a default size will be used unless a font is set\nwith textSize(). Change the color of the text with the fill() function.\nChange the outline of the text with the stroke() and strokeWeight()\nfunctions.\n<br><br>\nThe text displays in relation to the textAlign() function, which gives the\noption to draw to the left, right, and center of the coordinates.\n<br><br>\nThe x2 and y2 parameters define a rectangular area to display within and\nmay only be used with string data. When these parameters are specified,\nthey are interpreted based on the current rectMode() setting. Text that\ndoes not fit completely within the rectangle specified will not be drawn\nto the screen.</p>\n",
+            "description": "<p>Draws text to the screen. Displays the information specified in the first\nparameter on the screen in the position specified by the additional\nparameters. A default font will be used unless a font is set with the\ntextFont() function and a default size will be used unless a font is set\nwith txtSize(). Change the color of the text with the fill() function.\nChange the outline of the text with the stroke() and strokeWeight()\nfunctions.\n<br><br>\nThe text displays in relation to the textAlign() function, which gives the\noption to draw to the left, right, and center of the coordinates.\n<br><br>\nThe x2 and y2 parameters define a rectangular area to display within and\nmay only be used with string data. When these parameters are specified,\nthey are interpreted based on the current rectMode() setting. Text that\ndoes not fit completely within the rectangle specified will not be drawn\nto the screen.</p>\n",
             "itemtype": "method",
             "name": "text",
             "params": [
@@ -14896,7 +14896,7 @@ module.exports={
             ],
             "chainable": 1,
             "example": [
-                "\n<div>\n<code>\ntextSize(32);\ntext('word', 10, 30);\nfill(0, 102, 153);\ntext('word', 10, 60);\nfill(0, 102, 153, 51);\ntext('word', 10, 90);\n</code>\n</div>\n<div>\n<code>\nvar s = 'The quick brown fox jumped over the lazy dog.';\nfill(50);\ntext(s, 10, 10, 70, 80); // Text wraps within text box\n</code>\n</div>"
+                "\n<div>\n<code>\ntxtSize(32);\ntext('word', 10, 30);\nfill(0, 102, 153);\ntext('word', 10, 60);\nfill(0, 102, 153, 51);\ntext('word', 10, 90);\n</code>\n</div>\n<div>\n<code>\nvar s = 'The quick brown fox jumped over the lazy dog.';\nfill(50);\ntext(s, 10, 10, 70, 80); // Text wraps within text box\n</code>\n</div>"
             ],
             "alt": "'word' displayed 3 times going from black, blue to translucent blue\nThe quick brown fox jumped over the lazy dog.",
             "class": "p5",
@@ -14914,7 +14914,7 @@ module.exports={
                 "type": "Object"
             },
             "example": [
-                "\n<div>\n<code>\nfill(0);\ntextSize(12);\ntextFont('Georgia');\ntext('Georgia', 12, 30);\ntextFont('Helvetica');\ntext('Helvetica', 12, 60);\n</code>\n</div>\n<div>\n<code>\nvar fontRegular, fontItalic, fontBold;\nfunction preload() {\n  fontRegular = loadFont('assets/Regular.otf');\n  fontItalic = loadFont('assets/Italic.ttf');\n  fontBold = loadFont('assets/Bold.ttf');\n}\nfunction setup() {\n  background(210);\n  fill(0)\n   .strokeWeight(0)\n   .textSize(10);\n  textFont(fontRegular);\n  text('Font Style Normal', 10, 30);\n  textFont(fontItalic);\n  text('Font Style Italic', 10, 50);\n  textFont(fontBold);\n  text('Font Style Bold', 10, 70);\n}\n</code>\n</div>"
+                "\n<div>\n<code>\nfill(0);\ntxtSize(12);\ntextFont('Georgia');\ntext('Georgia', 12, 30);\ntextFont('Helvetica');\ntext('Helvetica', 12, 60);\n</code>\n</div>\n<div>\n<code>\nvar fontRegular, fontItalic, fontBold;\nfunction preload() {\n  fontRegular = loadFont('assets/Regular.otf');\n  fontItalic = loadFont('assets/Italic.ttf');\n  fontBold = loadFont('assets/Bold.ttf');\n}\nfunction setup() {\n  background(210);\n  fill(0)\n   .strokeWeight(0)\n   .txtSize(10);\n  textFont(fontRegular);\n  text('Font Style Normal', 10, 30);\n  textFont(fontItalic);\n  text('Font Style Italic', 10, 50);\n  textFont(fontBold);\n  text('Font Style Bold', 10, 70);\n}\n</code>\n</div>"
             ],
             "alt": "words Font Style Normal displayed normally, Italic in italic and bold in bold",
             "class": "p5",
@@ -14998,7 +14998,7 @@ module.exports={
                 "type": "Object"
             },
             "example": [
-                "\n<div>\n<code>\nvar font;\nvar textString = 'Lorem ipsum dolor sit amet.';\nfunction preload() {\n  font = loadFont('./assets/Regular.otf');\n}\nfunction setup() {\n  background(210);\n\n  var bbox = font.textBounds(textString, 10, 30, 12);\n  fill(255);\n  stroke(0);\n  rect(bbox.x, bbox.y, bbox.w, bbox.h);\n  fill(0);\n  noStroke();\n\n  textFont(font);\n  textSize(12);\n  text(textString, 10, 30);\n}\n</code>\n</div>"
+                "\n<div>\n<code>\nvar font;\nvar textString = 'Lorem ipsum dolor sit amet.';\nfunction preload() {\n  font = loadFont('./assets/Regular.otf');\n}\nfunction setup() {\n  background(210);\n\n  var bbox = font.textBounds(textString, 10, 30, 12);\n  fill(255);\n  stroke(0);\n  rect(bbox.x, bbox.y, bbox.w, bbox.h);\n  fill(0);\n  noStroke();\n\n  textFont(font);\n  txtSize(12);\n  text(textString, 10, 30);\n}\n</code>\n</div>"
             ],
             "alt": "words Lorem ipsum dol go off canvas and contained by white bounding box",
             "class": "p5.Font",
@@ -15825,7 +15825,7 @@ module.exports={
                 "type": "String"
             },
             "example": [
-                "\n<div>\n<code>\nfunction setup() {\n  background(200);\n  var num = 112.53106115;\n\n  noStroke();\n  fill(0);\n  textSize(14);\n  // Draw formatted numbers\n  text(nf(num, 5, 2), 10, 20);\n\n  text(nf(num, 4, 3), 10, 55);\n\n  text(nf(num, 3, 6), 10, 85);\n\n  // Draw dividing lines\n  stroke(120);\n  line(0, 30, width, 30);\n  line(0, 65, width, 65);\n}\n</code>\n</div>"
+                "\n<div>\n<code>\nfunction setup() {\n  background(200);\n  var num = 112.53106115;\n\n  noStroke();\n  fill(0);\n  txtSize(14);\n  // Draw formatted numbers\n  text(nf(num, 5, 2), 10, 20);\n\n  text(nf(num, 4, 3), 10, 55);\n\n  text(nf(num, 3, 6), 10, 85);\n\n  // Draw dividing lines\n  stroke(120);\n  line(0, 30, width, 30);\n  line(0, 65, width, 65);\n}\n</code>\n</div>"
             ],
             "alt": "\"0011253\" top left, \"0112.531\" mid left, \"112.531061\" bottom left canvas",
             "class": "p5",
@@ -15897,7 +15897,7 @@ module.exports={
                 "type": "String"
             },
             "example": [
-                "\n<div>\n<code>\nfunction setup() {\n  background(200);\n  var num = 11253106.115;\n  var numArr = [1, 1, 2];\n\n  noStroke();\n  fill(0);\n  textSize(12);\n\n  // Draw formatted numbers\n  text(nfc(num, 4), 10, 30);\n  text(nfc(numArr, 2), 10, 80);\n\n  // Draw dividing line\n  stroke(120);\n  line(0, 50, width, 50);\n}\n</code>\n</div>"
+                "\n<div>\n<code>\nfunction setup() {\n  background(200);\n  var num = 11253106.115;\n  var numArr = [1, 1, 2];\n\n  noStroke();\n  fill(0);\n  txtSize(12);\n\n  // Draw formatted numbers\n  text(nfc(num, 4), 10, 30);\n  text(nfc(numArr, 2), 10, 80);\n\n  // Draw dividing line\n  stroke(120);\n  line(0, 50, width, 50);\n}\n</code>\n</div>"
             ],
             "alt": "\"11,253,106.115\" top middle and \"1.00,1.00,2.00\" displayed bottom mid",
             "class": "p5",
@@ -15957,7 +15957,7 @@ module.exports={
                 "type": "String"
             },
             "example": [
-                "\n<div>\n<code>\nfunction setup() {\n  background(200);\n  var num1 = 11253106.115;\n  var num2 = -11253106.115;\n\n  noStroke();\n  fill(0);\n  textSize(12);\n\n  // Draw formatted numbers\n  text(nfp(num1, 4, 2), 10, 30);\n  text(nfp(num2, 4, 2), 10, 80);\n\n  // Draw dividing line\n  stroke(120);\n  line(0, 50, width, 50);\n}\n</code>\n</div>"
+                "\n<div>\n<code>\nfunction setup() {\n  background(200);\n  var num1 = 11253106.115;\n  var num2 = -11253106.115;\n\n  noStroke();\n  fill(0);\n  txtSize(12);\n\n  // Draw formatted numbers\n  text(nfp(num1, 4, 2), 10, 30);\n  text(nfp(num2, 4, 2), 10, 80);\n\n  // Draw dividing line\n  stroke(120);\n  line(0, 50, width, 50);\n}\n</code>\n</div>"
             ],
             "alt": "\"+11253106.11\" top middle and \"-11253106.11\" displayed bottom middle",
             "class": "p5",
@@ -16029,7 +16029,7 @@ module.exports={
                 "type": "String"
             },
             "example": [
-                "\n<div>\n<code>\nfunction setup() {\n  background(200);\n  var num1 = 11253106.115;\n  var num2 = -11253106.115;\n\n  noStroke();\n  fill(0);\n  textSize(12);\n  // Draw formatted numbers\n  text(nfs(num1, 4, 2), 10, 30);\n\n  text(nfs(num2, 4, 2), 10, 80);\n\n  // Draw dividing line\n  stroke(120);\n  line(0, 50, width, 50);\n}\n</code>\n</div>"
+                "\n<div>\n<code>\nfunction setup() {\n  background(200);\n  var num1 = 11253106.115;\n  var num2 = -11253106.115;\n\n  noStroke();\n  fill(0);\n  txtSize(12);\n  // Draw formatted numbers\n  text(nfs(num1, 4, 2), 10, 30);\n\n  text(nfs(num2, 4, 2), 10, 80);\n\n  // Draw dividing line\n  stroke(120);\n  line(0, 50, width, 50);\n}\n</code>\n</div>"
             ],
             "alt": "\"11253106.11\" top middle and \"-11253106.11\" displayed bottom middle",
             "class": "p5",
@@ -17050,7 +17050,7 @@ module.exports={
             ],
             "chainable": 1,
             "example": [
-                "\n<div>\n<code>\nvar img;\nfunction preload() {\n  img = loadImage('assets/laDefense.jpg');\n}\n\nfunction setup() {\n  createCanvas(100, 100, WEBGL);\n}\n\nfunction draw() {\n  background(0);\n  rotateZ(frameCount * 0.01);\n  rotateX(frameCount * 0.01);\n  rotateY(frameCount * 0.01);\n  //pass image as texture\n  texture(img);\n  box(200, 200, 200);\n}\n</code>\n</div>\n\n<div>\n<code>\nvar pg;\nfunction setup() {\n  createCanvas(100, 100, WEBGL);\n  pg = createGraphics(200, 200);\n  pg.textSize(100);\n}\n\nfunction draw() {\n  background(0);\n  pg.background(255);\n  pg.text('hello!', 0, 100);\n  //pass image as texture\n  texture(pg);\n  plane(200);\n}\n</code>\n</div>\n\n<div>\n<code>\nvar vid;\nfunction preload() {\n  vid = createVideo('assets/fingers.mov');\n  vid.hide();\n  vid.loop();\n}\nfunction setup() {\n  createCanvas(100, 100, WEBGL);\n}\n\nfunction draw() {\n  background(0);\n  //pass video frame as texture\n  texture(vid);\n  plane(200);\n}\n</code>\n</div>"
+                "\n<div>\n<code>\nvar img;\nfunction preload() {\n  img = loadImage('assets/laDefense.jpg');\n}\n\nfunction setup() {\n  createCanvas(100, 100, WEBGL);\n}\n\nfunction draw() {\n  background(0);\n  rotateZ(frameCount * 0.01);\n  rotateX(frameCount * 0.01);\n  rotateY(frameCount * 0.01);\n  //pass image as texture\n  texture(img);\n  box(200, 200, 200);\n}\n</code>\n</div>\n\n<div>\n<code>\nvar pg;\nfunction setup() {\n  createCanvas(100, 100, WEBGL);\n  pg = createGraphics(200, 200);\n  pg.txtSize(100);\n}\n\nfunction draw() {\n  background(0);\n  pg.background(255);\n  pg.text('hello!', 0, 100);\n  //pass image as texture\n  texture(pg);\n  plane(200);\n}\n</code>\n</div>\n\n<div>\n<code>\nvar vid;\nfunction preload() {\n  vid = createVideo('assets/fingers.mov');\n  vid.hide();\n  vid.loop();\n}\nfunction setup() {\n  createCanvas(100, 100, WEBGL);\n}\n\nfunction draw() {\n  background(0);\n  //pass video frame as texture\n  texture(vid);\n  plane(200);\n}\n</code>\n</div>"
             ],
             "alt": "Rotating view of many images umbrella and grid roof on a 3d plane\nblack canvas\nblack canvas",
             "class": "p5",
@@ -20086,7 +20086,7 @@ module.exports={
                 "type": "Number"
             },
             "example": [
-                "\n<div><code>\n\n\nfunction setup(){\ncnv = createCanvas(800,400);\nsound = new p5.AudioIn();\nsound.start();\nfft = new p5.FFT();\nsound.connect(fft);\n}\n\n\nfunction draw(){\n\nvar centroidplot = 0.0;\nvar spectralCentroid = 0;\n\n\nbackground(0);\nstroke(0,255,0);\nvar spectrum = fft.analyze();\nfill(0,255,0); // spectrum is green\n\n//draw the spectrum\n\nfor (var i = 0; i< spectrum.length; i++){\n  var x = map(log(i), 0, log(spectrum.length), 0, width);\n  var h = map(spectrum[i], 0, 255, 0, height);\n  var rectangle_width = (log(i+1)-log(i))*(width/log(spectrum.length));\n  rect(x, height, rectangle_width, -h )\n}\n\nvar nyquist = 22050;\n\n// get the centroid\nspectralCentroid = fft.getCentroid();\n\n// the mean_freq_index calculation is for the display.\nvar mean_freq_index = spectralCentroid/(nyquist/spectrum.length);\n\ncentroidplot = map(log(mean_freq_index), 0, log(spectrum.length), 0, width);\n\n\nstroke(255,0,0); // the line showing where the centroid is will be red\n\nrect(centroidplot, 0, width / spectrum.length, height)\nnoStroke();\nfill(255,255,255);  // text is white\ntextSize(40);\ntext(\"centroid: \"+round(spectralCentroid)+\" Hz\", 10, 40);\n}\n </code></div>"
+                "\n<div><code>\n\n\nfunction setup(){\ncnv = createCanvas(800,400);\nsound = new p5.AudioIn();\nsound.start();\nfft = new p5.FFT();\nsound.connect(fft);\n}\n\n\nfunction draw(){\n\nvar centroidplot = 0.0;\nvar spectralCentroid = 0;\n\n\nbackground(0);\nstroke(0,255,0);\nvar spectrum = fft.analyze();\nfill(0,255,0); // spectrum is green\n\n//draw the spectrum\n\nfor (var i = 0; i< spectrum.length; i++){\n  var x = map(log(i), 0, log(spectrum.length), 0, width);\n  var h = map(spectrum[i], 0, 255, 0, height);\n  var rectangle_width = (log(i+1)-log(i))*(width/log(spectrum.length));\n  rect(x, height, rectangle_width, -h )\n}\n\nvar nyquist = 22050;\n\n// get the centroid\nspectralCentroid = fft.getCentroid();\n\n// the mean_freq_index calculation is for the display.\nvar mean_freq_index = spectralCentroid/(nyquist/spectrum.length);\n\ncentroidplot = map(log(mean_freq_index), 0, log(spectrum.length), 0, width);\n\n\nstroke(255,0,0); // the line showing where the centroid is will be red\n\nrect(centroidplot, 0, width / spectrum.length, height)\nnoStroke();\nfill(255,255,255);  // text is white\ntxtSize(40);\ntext(\"centroid: \"+round(spectralCentroid)+\" Hz\", 10, 40);\n}\n </code></div>"
             ],
             "class": "p5.FFT",
             "module": "p5.sound",
@@ -47525,8 +47525,8 @@ p5.prototype.print = function() {
  *   <div><code>
  * function setup() {
  *   frameRate(30);
- *   textSize(20);
- *   textSize(30);
+ *   txtSize(20);
+ *   txtSize(30);
  *   textAlign(CENTER);
  * }
  *
@@ -52219,7 +52219,7 @@ function assign(dest, varArgs) {
  * and style settings controlled by the following functions: fill(),
  * stroke(), tint(), strokeWeight(), strokeCap(), strokeJoin(),
  * imageMode(), rectMode(), ellipseMode(), colorMode(), textAlign(),
- * textFont(), textMode(), textSize(), textLeading().
+ * textFont(), textMode(), txtSize(), textLeading().
  *
  * @method push
  * @example
@@ -52284,7 +52284,7 @@ p5.prototype.push = function() {
  * and style settings controlled by the following functions: fill(),
  * stroke(), tint(), strokeWeight(), strokeCap(), strokeJoin(),
  * imageMode(), rectMode(), ellipseMode(), colorMode(), textAlign(),
- * textFont(), textMode(), textSize(), textLeading().
+ * textFont(), textMode(), txtSize(), textLeading().
  *
  * @method pop
  * @example
@@ -55079,7 +55079,7 @@ p5.prototype.keyIsPressed = false; // khan
  * // (Not Guaranteed to be Case Sensitive)
  * function setup() {
  *   fill(245, 123, 158);
- *   textSize(50);
+ *   txtSize(50);
  * }
  *
  * function draw() {
@@ -64276,7 +64276,7 @@ p5.prototype.map = function(n, start1, stop1, start2, stop2, withinBounds) {
  *   var maxX = 33;
  *   var maxY = 80;
  *   // Draw the Maximum value in the array.
- *   textSize(32);
+ *   txtSize(32);
  *   text(max(numArray), maxX, maxY);
  * }
  * </code></div>
@@ -64326,7 +64326,7 @@ p5.prototype.max = function() {
  *   var maxX = 33;
  *   var maxY = 80;
  *   // Draw the Minimum value in the array.
- *   textSize(32);
+ *   txtSize(32);
  *   text(min(numArray), maxX, maxY);
  * }
  * </code></div>
@@ -64386,7 +64386,7 @@ p5.prototype.min = function() {
  *   // Draw the normalized value
  *   textAlign(LEFT);
  *   fill(0);
- *   textSize(32);
+ *   txtSize(32);
  *   var normalY = 40;
  *   var normalX = 20;
  *   text(normalized, normalX, normalY);
@@ -67403,7 +67403,7 @@ var p5 = _dereq_('../core/core');
  * @example
  * <div>
  * <code>
- * textSize(16);
+ * txtSize(16);
  * textAlign(RIGHT);
  * text('ABCD', 50, 30);
  * textAlign(CENTER);
@@ -67439,7 +67439,7 @@ p5.prototype.textAlign = function(horizAlign, vertAlign) {
  * <code>
  * // Text to display. The "\n" is a "new line" character
  * var lines = 'L1\nL2\nL3';
- * textSize(12);
+ * txtSize(12);
  *
  * textLeading(10); // Set leading to 10
  * text(lines, 10, 25);
@@ -67468,18 +67468,18 @@ p5.prototype.textLeading = function(theLeading) {
  * Sets/gets the current font size. This size will be used in all subsequent
  * calls to the text() function. Font size is measured in pixels.
  *
- * @method textSize
+ * @method txtSize
  * @param {Number} theSize the size of the letters in units of pixels
  * @chainable
  *
  * @example
  * <div>
  * <code>
- * textSize(12);
+ * txtSize(12);
  * text('Font Size 12', 10, 30);
- * textSize(14);
+ * txtSize(14);
  * text('Font Size 14', 10, 60);
- * textSize(16);
+ * txtSize(16);
  * text('Font Size 16', 10, 90);
  * </code>
  * </div>
@@ -67488,11 +67488,11 @@ p5.prototype.textLeading = function(theLeading) {
  *Font Size 12 displayed small, Font Size 14 medium & Font Size 16 large
  */
 /**
- * @method textSize
+ * @method txtSize
  * @return {Number}
  */
 p5.prototype.textSize = function(theSize) {
-  p5._validateParameters('textSize', arguments);
+  p5._validateParameters('txtSize', arguments);
   return this._renderer.textSize.apply(this._renderer, arguments);
 };
 
@@ -67509,7 +67509,7 @@ p5.prototype.textSize = function(theSize) {
  * <div>
  * <code>
  * strokeWeight(0);
- * textSize(12);
+ * txtSize(12);
  * textStyle(NORMAL);
  * text('Font Style Normal', 10, 30);
  * textStyle(ITALIC);
@@ -67540,7 +67540,7 @@ p5.prototype.textStyle = function(theStyle) {
  * @example
  * <div>
  * <code>
- * textSize(28);
+ * txtSize(28);
  *
  * var aChar = 'P';
  * var cWidth = textWidth(aChar);
@@ -67578,12 +67578,12 @@ p5.prototype.textWidth = function(theText) {
  * var base = height * 0.75;
  * var scalar = 0.8; // Different for each font
  *
- * textSize(32); // Set initial text size
+ * txtSize(32); // Set initial text size
  * var asc = textAscent() * scalar; // Calc ascent
  * line(0, base - asc, width, base - asc);
  * text('dp', 0, base); // Draw text on baseline
  *
- * textSize(64); // Increase text size
+ * txtSize(64); // Increase text size
  * asc = textAscent() * scalar; // Recalc ascent
  * line(40, base - asc, width, base - asc);
  * text('dp', 40, base); // Draw text on baseline
@@ -67607,12 +67607,12 @@ p5.prototype.textAscent = function() {
  * var base = height * 0.75;
  * var scalar = 0.8; // Different for each font
  *
- * textSize(32); // Set initial text size
+ * txtSize(32); // Set initial text size
  * var desc = textDescent() * scalar; // Calc ascent
  * line(0, base + desc, width, base + desc);
  * text('dp', 0, base); // Draw text on baseline
  *
- * textSize(64); // Increase text size
+ * txtSize(64); // Increase text size
  * desc = textDescent() * scalar; // Recalc ascent
  * line(40, base + desc, width, base + desc);
  * text('dp', 40, base); // Draw text on baseline
@@ -67681,7 +67681,7 @@ _dereq_('../core/error_helpers');
  * function setup() {
  *   fill('#ED225D');
  *   textFont(myFont);
- *   textSize(36);
+ *   txtSize(36);
  *   text('p5*js', 10, 50);
  * }
  * </code></div>
@@ -67781,7 +67781,7 @@ p5.prototype.loadFont = function(path, onSuccess, onError) {
  * parameter on the screen in the position specified by the additional
  * parameters. A default font will be used unless a font is set with the
  * textFont() function and a default size will be used unless a font is set
- * with textSize(). Change the color of the text with the fill() function.
+ * with txtSize(). Change the color of the text with the fill() function.
  * Change the outline of the text with the stroke() and strokeWeight()
  * functions.
  * <br><br>
@@ -67807,7 +67807,7 @@ p5.prototype.loadFont = function(path, onSuccess, onError) {
  * @example
  * <div>
  * <code>
- * textSize(32);
+ * txtSize(32);
  * text('word', 10, 30);
  * fill(0, 102, 153);
  * text('word', 10, 60);
@@ -67845,7 +67845,7 @@ p5.prototype.text = function(str, x, y, maxWidth, maxHeight) {
  * <div>
  * <code>
  * fill(0);
- * textSize(12);
+ * txtSize(12);
  * textFont('Georgia');
  * text('Georgia', 12, 30);
  * textFont('Helvetica');
@@ -67864,7 +67864,7 @@ p5.prototype.text = function(str, x, y, maxWidth, maxHeight) {
  *   background(210);
  *   fill(0)
     .strokeWeight(0)
-    .textSize(10);
+    .txtSize(10);
  *   textFont(fontRegular);
  *   text('Font Style Normal', 10, 30);
  *   textFont(fontItalic);
@@ -67986,7 +67986,7 @@ p5.Font.prototype.list = function() {
  *   noStroke();
  *
  *   textFont(font);
- *   textSize(12);
+ *   txtSize(12);
  *   text(textString, 10, 30);
  * }
  * </code>
@@ -69975,7 +69975,7 @@ p5.prototype.matchAll = function(str, reg) {
  *
  *   noStroke();
  *   fill(0);
- *   textSize(14);
+ *   txtSize(14);
  *   // Draw formatted numbers
  *   text(nf(num, 5, 2), 10, 20);
  *
@@ -70079,7 +70079,7 @@ function doNf(num, left, right) {
  *
  *   noStroke();
  *   fill(0);
- *   textSize(12);
+ *   txtSize(12);
  *
  *   // Draw formatted numbers
  *   text(nfc(num, 4), 10, 30);
@@ -70158,7 +70158,7 @@ function doNfc(num, right) {
  *
  *   noStroke();
  *   fill(0);
- *   textSize(12);
+ *   txtSize(12);
  *
  *   // Draw formatted numbers
  *   text(nfp(num1, 4, 2), 10, 30);
@@ -70220,7 +70220,7 @@ function addNfp(num) {
  *
  *   noStroke();
  *   fill(0);
- *   textSize(12);
+ *   txtSize(12);
  *   // Draw formatted numbers
  *   text(nfs(num1, 4, 2), 10, 30);
  *
@@ -71717,7 +71717,7 @@ p5.prototype.normalMaterial = function() {
  * function setup() {
  *   createCanvas(100, 100, WEBGL);
  *   pg = createGraphics(200, 200);
- *   pg.textSize(100);
+ *   pg.txtSize(100);
  * }
  *
  * function draw() {

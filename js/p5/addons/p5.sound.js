@@ -2861,7 +2861,7 @@ fft = function () {
      *  rect(centroidplot, 0, width / spectrum.length, height)
      *  noStroke();
      *  fill(255,255,255);  // text is white
-     *  textSize(40);
+     *  txtSize(40);
      *  text("centroid: "+round(spectralCentroid)+" Hz", 10, 40);
      *}
      * </code></div>
@@ -8479,11 +8479,11 @@ eq = function () {
    *   text('click to kill',50,25);
    *
    *   fill(255, 40, 255);
-   *   textSize(26);
+   *   txtSize(26);
    *   text(band_names[band_index],50,55);
    *
    *   fill(255);
-   *   textSize(9);
+   *   txtSize(9);
    *   text('space = play/pause',50,80);
    * }
    *

@@ -21428,8 +21428,8 @@ p5.prototype.print = function() {
  *   <div><code>
  * function setup() {
  *   frameRate(30);
- *   textSize(20);
- *   textSize(30);
+ *   txtSize(20);
+ *   txtSize(30);
  *   textAlign(CENTER);
  * }
  *
@@ -26122,7 +26122,7 @@ function assign(dest, varArgs) {
  * and style settings controlled by the following functions: fill(),
  * stroke(), tint(), strokeWeight(), strokeCap(), strokeJoin(),
  * imageMode(), rectMode(), ellipseMode(), colorMode(), textAlign(),
- * textFont(), textMode(), textSize(), textLeading().
+ * textFont(), textMode(), txtSize(), textLeading().
  *
  * @method push
  * @example
@@ -26187,7 +26187,7 @@ p5.prototype.push = function() {
  * and style settings controlled by the following functions: fill(),
  * stroke(), tint(), strokeWeight(), strokeCap(), strokeJoin(),
  * imageMode(), rectMode(), ellipseMode(), colorMode(), textAlign(),
- * textFont(), textMode(), textSize(), textLeading().
+ * textFont(), textMode(), txtSize(), textLeading().
  *
  * @method pop
  * @example
@@ -28982,7 +28982,7 @@ p5.prototype.keyIsPressed = false; // khan
  * // (Not Guaranteed to be Case Sensitive)
  * function setup() {
  *   fill(245, 123, 158);
- *   textSize(50);
+ *   txtSize(50);
  * }
  *
  * function draw() {
@@ -38179,7 +38179,7 @@ p5.prototype.map = function(n, start1, stop1, start2, stop2, withinBounds) {
  *   var maxX = 33;
  *   var maxY = 80;
  *   // Draw the Maximum value in the array.
- *   textSize(32);
+ *   txtSize(32);
  *   text(max(numArray), maxX, maxY);
  * }
  * </code></div>
@@ -38229,7 +38229,7 @@ p5.prototype.max = function() {
  *   var maxX = 33;
  *   var maxY = 80;
  *   // Draw the Minimum value in the array.
- *   textSize(32);
+ *   txtSize(32);
  *   text(min(numArray), maxX, maxY);
  * }
  * </code></div>
@@ -38289,7 +38289,7 @@ p5.prototype.min = function() {
  *   // Draw the normalized value
  *   textAlign(LEFT);
  *   fill(0);
- *   textSize(32);
+ *   txtSize(32);
  *   var normalY = 40;
  *   var normalX = 20;
  *   text(normalized, normalX, normalY);
@@ -41306,7 +41306,7 @@ var p5 = _dereq_('../core/core');
  * @example
  * <div>
  * <code>
- * textSize(16);
+ * txtSize(16);
  * textAlign(RIGHT);
  * text('ABCD', 50, 30);
  * textAlign(CENTER);
@@ -41342,7 +41342,7 @@ p5.prototype.textAlign = function(horizAlign, vertAlign) {
  * <code>
  * // Text to display. The "\n" is a "new line" character
  * var lines = 'L1\nL2\nL3';
- * textSize(12);
+ * txtSize(12);
  *
  * textLeading(10); // Set leading to 10
  * text(lines, 10, 25);
@@ -41371,18 +41371,18 @@ p5.prototype.textLeading = function(theLeading) {
  * Sets/gets the current font size. This size will be used in all subsequent
  * calls to the text() function. Font size is measured in pixels.
  *
- * @method textSize
+ * @method txtSize
  * @param {Number} theSize the size of the letters in units of pixels
  * @chainable
  *
  * @example
  * <div>
  * <code>
- * textSize(12);
+ * txtSize(12);
  * text('Font Size 12', 10, 30);
- * textSize(14);
+ * txtSize(14);
  * text('Font Size 14', 10, 60);
- * textSize(16);
+ * txtSize(16);
  * text('Font Size 16', 10, 90);
  * </code>
  * </div>
@@ -41391,11 +41391,11 @@ p5.prototype.textLeading = function(theLeading) {
  *Font Size 12 displayed small, Font Size 14 medium & Font Size 16 large
  */
 /**
- * @method textSize
+ * @method txtSize
  * @return {Number}
  */
 p5.prototype.textSize = function(theSize) {
-  p5._validateParameters('textSize', arguments);
+  p5._validateParameters('txtSize', arguments);
   return this._renderer.textSize.apply(this._renderer, arguments);
 };
 
@@ -41412,7 +41412,7 @@ p5.prototype.textSize = function(theSize) {
  * <div>
  * <code>
  * strokeWeight(0);
- * textSize(12);
+ * txtSize(12);
  * textStyle(NORMAL);
  * text('Font Style Normal', 10, 30);
  * textStyle(ITALIC);
@@ -41443,7 +41443,7 @@ p5.prototype.textStyle = function(theStyle) {
  * @example
  * <div>
  * <code>
- * textSize(28);
+ * txtSize(28);
  *
  * var aChar = 'P';
  * var cWidth = textWidth(aChar);
@@ -41481,12 +41481,12 @@ p5.prototype.textWidth = function(theText) {
  * var base = height * 0.75;
  * var scalar = 0.8; // Different for each font
  *
- * textSize(32); // Set initial text size
+ * txtSize(32); // Set initial text size
  * var asc = textAscent() * scalar; // Calc ascent
  * line(0, base - asc, width, base - asc);
  * text('dp', 0, base); // Draw text on baseline
  *
- * textSize(64); // Increase text size
+ * txtSize(64); // Increase text size
  * asc = textAscent() * scalar; // Recalc ascent
  * line(40, base - asc, width, base - asc);
  * text('dp', 40, base); // Draw text on baseline
@@ -41510,12 +41510,12 @@ p5.prototype.textAscent = function() {
  * var base = height * 0.75;
  * var scalar = 0.8; // Different for each font
  *
- * textSize(32); // Set initial text size
+ * txtSize(32); // Set initial text size
  * var desc = textDescent() * scalar; // Calc ascent
  * line(0, base + desc, width, base + desc);
  * text('dp', 0, base); // Draw text on baseline
  *
- * textSize(64); // Increase text size
+ * txtSize(64); // Increase text size
  * desc = textDescent() * scalar; // Recalc ascent
  * line(40, base + desc, width, base + desc);
  * text('dp', 40, base); // Draw text on baseline
@@ -41584,7 +41584,7 @@ _dereq_('../core/error_helpers');
  * function setup() {
  *   fill('#ED225D');
  *   textFont(myFont);
- *   textSize(36);
+ *   txtSize(36);
  *   text('p5*js', 10, 50);
  * }
  * </code></div>
@@ -41684,7 +41684,7 @@ p5.prototype.loadFont = function(path, onSuccess, onError) {
  * parameter on the screen in the position specified by the additional
  * parameters. A default font will be used unless a font is set with the
  * textFont() function and a default size will be used unless a font is set
- * with textSize(). Change the color of the text with the fill() function.
+ * with txtSize(). Change the color of the text with the fill() function.
  * Change the outline of the text with the stroke() and strokeWeight()
  * functions.
  * <br><br>
@@ -41710,7 +41710,7 @@ p5.prototype.loadFont = function(path, onSuccess, onError) {
  * @example
  * <div>
  * <code>
- * textSize(32);
+ * txtSize(32);
  * text('word', 10, 30);
  * fill(0, 102, 153);
  * text('word', 10, 60);
@@ -41748,7 +41748,7 @@ p5.prototype.text = function(str, x, y, maxWidth, maxHeight) {
  * <div>
  * <code>
  * fill(0);
- * textSize(12);
+ * txtSize(12);
  * textFont('Georgia');
  * text('Georgia', 12, 30);
  * textFont('Helvetica');
@@ -41767,7 +41767,7 @@ p5.prototype.text = function(str, x, y, maxWidth, maxHeight) {
  *   background(210);
  *   fill(0)
     .strokeWeight(0)
-    .textSize(10);
+    .txtSize(10);
  *   textFont(fontRegular);
  *   text('Font Style Normal', 10, 30);
  *   textFont(fontItalic);
@@ -41889,7 +41889,7 @@ p5.Font.prototype.list = function() {
  *   noStroke();
  *
  *   textFont(font);
- *   textSize(12);
+ *   txtSize(12);
  *   text(textString, 10, 30);
  * }
  * </code>
@@ -43878,7 +43878,7 @@ p5.prototype.matchAll = function(str, reg) {
  *
  *   noStroke();
  *   fill(0);
- *   textSize(14);
+ *   txtSize(14);
  *   // Draw formatted numbers
  *   text(nf(num, 5, 2), 10, 20);
  *
@@ -43982,7 +43982,7 @@ function doNf(num, left, right) {
  *
  *   noStroke();
  *   fill(0);
- *   textSize(12);
+ *   txtSize(12);
  *
  *   // Draw formatted numbers
  *   text(nfc(num, 4), 10, 30);
@@ -44061,7 +44061,7 @@ function doNfc(num, right) {
  *
  *   noStroke();
  *   fill(0);
- *   textSize(12);
+ *   txtSize(12);
  *
  *   // Draw formatted numbers
  *   text(nfp(num1, 4, 2), 10, 30);
@@ -44123,7 +44123,7 @@ function addNfp(num) {
  *
  *   noStroke();
  *   fill(0);
- *   textSize(12);
+ *   txtSize(12);
  *   // Draw formatted numbers
  *   text(nfs(num1, 4, 2), 10, 30);
  *
@@ -45620,7 +45620,7 @@ p5.prototype.normalMaterial = function() {
  * function setup() {
  *   createCanvas(100, 100, WEBGL);
  *   pg = createGraphics(200, 200);
- *   pg.textSize(100);
+ *   pg.txtSize(100);
  * }
  *
  * function draw() {
