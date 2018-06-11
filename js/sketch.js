@@ -9,6 +9,8 @@ let backgroundColor;
 function setup() {
     cnv = createCanvas(cnvWidth, cnvHeight);  // Size must be the first statement
     cnv.parent('canvas-holder');
+    cnv.mousePressed(clickOnCanvas);
+
     frameRate(30);
 
     backgroundColor = color('#0B6623');
@@ -18,6 +20,7 @@ function setup() {
 
 function draw() {
     background(backgroundColor);
+
 
     if(balls.length === 2){
         if(balls[0].intersects(balls[1])) {
@@ -43,21 +46,27 @@ function draw() {
 
 }
 
-function mousePressed() {
+function clickOnCanvas() {
     if(balls.length===2){
         return;
     }
     let ball = new Ball(mouseX, mouseY);
+    if(ball.isOutOfCanvas(width,height)){
+        alert("You cannot place a ball in this place. It is not within simulation place.");
+        return;
+    }
     for (let i = 0; i < balls.length; i++) {
-        if(ball.intersects(balls[i]) || ball.isOutOfCanvas(width,height)){
-            alert("You cannot place a ball in this place. It overlaps other ball or is not within simulation place.");
+        if(ball.intersects(balls[i])){
+            alert("You cannot place a ball in this place. It overlaps other ball.");
             return;
         }
     }
     if(balls.length < 2){
         ball.setName(Ball.incrementAndGetName());
+        let angle = balls.length === 0 ? getAAngle() : getBAngle();
+        ball.angle = angle;
         balls.push(ball);
-        lines.push(new Line(mouseX, mouseY, balls.length === 0 ? getAAngle() : getBAngle()));
+        lines.push(new Line(mouseX, mouseY, angle));
     }
 }
 function initializeAllBalls(input_data) {
