@@ -1,6 +1,8 @@
 let txtSize = 20;
 
-var collided = false;
+function convertAngleToRadian(angle) {
+    return (angle * Math.PI) / 180;
+}
 
 class Ball{
     constructor(x,y,r=30){
@@ -20,9 +22,17 @@ class Ball{
     init(init_data){
         this.m = init_data.mass;
         this.angle = init_data.angle; //TODO: calculate from vx vy then remove
-        this.vx = init_data.velocity * Math.cos((init_data.angle * Math.PI) / 180);
-        this.vy = init_data.velocity * Math.sin((init_data.angle * Math.PI) / 180);
+        this.vx = this.calculateVx(init_data.velocity, init_data.angle);
+        this.vy = this.calculateVy(init_data.velocity, init_data.angle);
     }
+
+    calculateVx(velocity, angle) {
+        return  velocity * Math.cos(convertAngleToRadian(angle));
+    }
+    calculateVy(velocity, angle) {
+        return  velocity * Math.sin(convertAngleToRadian(angle));
+    }
+
 
     show() {
         stroke(0); //border color set to black
@@ -69,11 +79,28 @@ class Ball{
     }
 
     isOutOfCanvas(cvnWidth, cvnHeight){
-        return this.isOutOfBorder(this.x , cvnWidth) || this.isOutOfBorder(this.y , cvnHeight);
+        return this.isOutOfBoardEdge(this.x , cvnWidth) || this.isOutOfBoardEdge(this.y , cvnHeight);
     }
 
-    isOutOfBorder(pos, borderSize) {
-        return pos + this.r >= borderSize || pos - this.r <= 0;
+    isOutOfBoardEdge(pos, boardEdgeSize) {
+        return pos + this.r >= boardEdgeSize || pos - this.r <= 0;
+    }
+
+    bounceFromBoardEdge(cvnWidth, cvnHeight){
+        if(this.isOutOfBoardEdge(this.x, cvnWidth)){
+            this.angle = 180 - this.angle;
+            this.updateAfterBounceFromEdge(this.angle);
+        }
+        if(this.isOutOfBoardEdge(this.y , cvnHeight)){
+            this.angle = 360 - this.angle;
+            this.updateAfterBounceFromEdge(this.angle);
+        }
+    }
+
+    updateAfterBounceFromEdge(resultedAngle) {
+        let velocity = Math.sqrt(Math.pow(this.vx,2) + Math.pow(this.vy,2));
+        this.new_vx = this.calculateVx(velocity, resultedAngle);
+        this.new_vy = this.calculateVy(velocity, resultedAngle);
     }
 
     move() {

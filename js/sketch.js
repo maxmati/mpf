@@ -30,6 +30,10 @@ function draw() {
     }
     for (let i = 0; i < balls.length; i++) {
         balls[i].move();
+        if(balls[i].isOutOfCanvas(cnvWidth,cnvHeight)){
+            balls[i].bounceFromBoardEdge(cnvWidth,cnvHeight);
+            balls[i].setNewAngles();
+        }
         balls[i].show();
     }
 
