@@ -10,9 +10,14 @@ class Ball{
         this.y = y;
         this.r = r;
         this.col = color('#FFFF19');
-        this.angle = 0; //TODO: calculate from vx vy then remove
         this.vx = 0;
         this.vy = 0;
+    }
+
+    getAngle(){
+      var angle = Math.atan(this.vy/this.vx);
+      if (this.vx < 0) { angle -= Math.PI }
+      return angle;
     }
 
     setName(name){
@@ -21,16 +26,15 @@ class Ball{
 
     init(init_data){
         this.m = init_data.mass;
-        this.angle = init_data.angle; //TODO: calculate from vx vy then remove
-        this.vx = this.calculateVx(init_data.velocity, init_data.angle);
-        this.vy = this.calculateVy(init_data.velocity, init_data.angle);
+        this.vx = this.calculateVx(init_data.velocity, convertAngleToRadian(init_data.angle));
+        this.vy = this.calculateVy(init_data.velocity, convertAngleToRadian(init_data.angle));
     }
 
     calculateVx(velocity, angle) {
-        return  velocity * Math.cos(convertAngleToRadian(angle));
+        return  velocity * Math.cos(angle);
     }
     calculateVy(velocity, angle) {
-        return  velocity * Math.sin(convertAngleToRadian(angle));
+        return  velocity * Math.sin(angle);
     }
 
 
@@ -64,8 +68,8 @@ class Ball{
     collide(other) {
       let v1 = Math.sqrt(this.vx*this.vx + this.vy*this.vy);
       let v2 = Math.sqrt(other.vx*other.vx + other.vy*other.vy);
-      let a1 = this.angle * Math.PI/180; //TODO: calculate from vx vy
-      let a2 = other.angle * Math.PI/180; //TODO: calculate from vx vy
+      let a1 = this.getAngle();
+      let a2 = other.getAngle();
       let ca = this.contactAngle(other);
       let m1 = this.m;
       let m2 = other.m;
@@ -88,19 +92,17 @@ class Ball{
 
     bounceFromBoardEdge(cvnWidth, cvnHeight){
         if(this.isOutOfBoardEdge(this.x, cvnWidth)){
-            this.angle = 180 - this.angle;
-            this.updateAfterBounceFromEdge(this.angle);
+            this.updateAfterBounceFromEdge(Math.PI - this.getAngle());
         }
         if(this.isOutOfBoardEdge(this.y , cvnHeight)){
-            this.angle = 360 - this.angle;
-            this.updateAfterBounceFromEdge(this.angle);
+            this.updateAfterBounceFromEdge(2*Math.PI - this.getAngle());
         }
     }
 
     updateAfterBounceFromEdge(resultedAngle) {
         let velocity = Math.sqrt(Math.pow(this.vx,2) + Math.pow(this.vy,2));
-        this.new_vx = this.calculateVx(velocity, resultedAngle);
-        this.new_vy = this.calculateVy(velocity, resultedAngle);
+        this.vx = this.calculateVx(velocity, resultedAngle);
+        this.vy = this.calculateVy(velocity, resultedAngle);
     }
 
     move() {

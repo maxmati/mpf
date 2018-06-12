@@ -18,24 +18,29 @@ function setup() {
     textSize(txtSize);
 }
 
+var collided = false;
 function draw() {
     background(backgroundColor);
 
-
     if(balls.length === 2){
         if(balls[0].intersects(balls[1])) {
-            balls[0].collide(balls[1]);
-            balls[1].collide(balls[0]);
 
-            balls[0].setNewAngles();
-            balls[1].setNewAngles();
+            if(!collided) {
+              balls[0].collide(balls[1]);
+              balls[1].collide(balls[0]);
+
+              balls[0].setNewAngles();
+              balls[1].setNewAngles();
+            }
+            collided = true;
+        } else {
+          collided = false;
         }
     }
     for (let i = 0; i < balls.length; i++) {
         balls[i].move();
         if(balls[i].isOutOfCanvas(cnvWidth,cnvHeight)){
             balls[i].bounceFromBoardEdge(cnvWidth,cnvHeight);
-            balls[i].setNewAngles();
         }
         balls[i].show();
     }
@@ -64,7 +69,6 @@ function clickOnCanvas() {
     if(balls.length < 2){
         ball.setName(Ball.incrementAndGetName());
         let angle = balls.length === 0 ? getAAngle() : getBAngle();
-        ball.angle = angle;
         balls.push(ball);
         lines.push(new Line(mouseX, mouseY, angle));
     }
