@@ -1,3 +1,8 @@
+*.aux
+*.log
+*.pdf
+*.synctex.gz
+
 
 # Created by https://www.gitignore.io/api/vim,linux,emacs,macos,windows,webstorm+all
 
