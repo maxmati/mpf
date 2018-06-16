@@ -58,10 +58,10 @@ In order to simulate 2d collision(fig. \ref{fig:collision}) we decided to rotate
 \begin{equation}
 \begin{aligned}
 \label{eq:rotate_speed}
-	v_{1xr} &= v_1 cos(\theta_1 - \varphi) \\
-	v_{1yr} &= v_1 sin(\theta_1 - \varphi) \\
-	v_{2xr} &= v_2 cos(\theta_2 - \varphi) \\
-	v_{2yr} &= v_2 sin(\theta_2 - \varphi) 
+	v_{1xr} &= v_1 \cos(\theta_1 - \varphi) \\
+	v_{1yr} &= v_1 \sin(\theta_1 - \varphi) \\
+	v_{2xr} &= v_2 \cos(\theta_2 - \varphi) \\
+	v_{2yr} &= v_2 \sin(\theta_2 - \varphi) 
 \end{aligned}
 \end{equation}
 After that we can calculate as in one dimension case(eq. \ref{eq:single_dim}) since y component is perpendicular to contact angle.
@@ -76,28 +76,28 @@ And plugging equations \ref{eq:rotate_speed} into \ref{eq:single_dim} we got \re
 \begin{equation}
 \begin{aligned}
 \label{eq:roated_x_components}
-v_{1fxr} &= \frac{v_1 cos(\theta_1 - \varphi)*(m_1-m_2) + 2m_2 v_2 cos(\theta_2 - \varphi)}{m_1+m_2} \\
-v_{2fxr} &= \frac{v_2 cos(\theta_2 - \varphi)*(m_2-m_1) + 2m_1 v_1 cos(\theta_1 - \varphi)}{m_1+m_2}
+v_{1fxr} &= \frac{v_1 \cos(\theta_1 - \varphi)*(m_1-m_2) + 2m_2 v_2 \cos(\theta_2 - \varphi)}{m_1+m_2} \\
+v_{2fxr} &= \frac{v_2 \cos(\theta_2 - \varphi)*(m_2-m_1) + 2m_1 v_1 \cos(\theta_1 - \varphi)}{m_1+m_2}
 \end{aligned}
 \end{equation}
 Having speed in rotated coordinate system we can un-rotate it to original one with equation \ref{eq:unrotate_speed},
 \begin{equation}
 \begin{aligned}
 \label{eq:unrotate_speed}
-v_{1fx} &= v_{1fxr} cos(\varphi) + v_{1yr} cos(\varphi + \frac{\pi}{2}) \\
-v_{1fy} &= v_{1fxr} sin(\varphi) + v_{1yr} sin(\varphi + \frac{\pi}{2}) \\
-v_{2fx} &= v_{2fxr} cos(\varphi) + v_{2yr} cos(\varphi + \frac{\pi}{2}) \\
-v_{2fy} &= v_{2fxr} sin(\varphi) + v_{2yr} sin(\varphi + \frac{\pi}{2}) 
+v_{1fx} &= v_{1fxr} \cos(\varphi) + v_{1yr} \cos(\varphi + \frac{\pi}{2}) \\
+v_{1fy} &= v_{1fxr} \sin(\varphi) + v_{1yr} \sin(\varphi + \frac{\pi}{2}) \\
+v_{2fx} &= v_{2fxr} \cos(\varphi) + v_{2yr} \cos(\varphi + \frac{\pi}{2}) \\
+v_{2fy} &= v_{2fxr} \sin(\varphi) + v_{2yr} \sin(\varphi + \frac{\pi}{2}) 
 \end{aligned}
 \end{equation}
 therefor receiving final equation \ref{eq:final_equation} used to calculate speed after collision in our simulation.
 \begin{equation}
 \begin{aligned}
 \label{eq:final_equation}
-v_{1fx} &= \frac{v_1 cos(\theta_1 - \varphi)*(m_1-m_2) + 2m_2 v_2 cos(\theta_2 - \varphi)}{m_1+m_2} cos(\varphi) + v_1 sin(\theta_1 - \varphi) cos(\varphi + \frac{\pi}{2}) \\
-v_{1fy} &= \frac{v_1 cos(\theta_1 - \varphi)*(m_1-m_2) + 2m_2 v_2 cos(\theta_2 - \varphi)}{m_1+m_2} sin(\varphi) + v_1 sin(\theta_1 - \varphi) sin(\varphi + \frac{\pi}{2}) \\
-v_{2fx} &=\frac{v_2 cos(\theta_2 - \varphi)*(m_2-m_1) + 2m_1 v_1 cos(\theta_1 - \varphi)}{m_1+m_2} cos(\varphi) + v_2 sin(\theta_2 - \varphi) cos(\varphi + \frac{\pi}{2}) \\
-v_{2fy} &= \frac{v_2 cos(\theta_2 - \varphi)*(m_2-m_1) + 2m_1 v_1 cos(\theta_1 - \varphi)}{m_1+m_2} sin(\varphi) + v_2 sin(\theta_2 - \varphi) sin(\varphi + \frac{\pi}{2}) 
+v_{1fx} &= \frac{v_1 \cos(\theta_1 - \varphi)*(m_1-m_2) + 2m_2 v_2 \cos(\theta_2 - \varphi)}{m_1+m_2} \cos(\varphi) + v_1 \sin(\theta_1 - \varphi) \cos(\varphi + \frac{\pi}{2}) \\
+v_{1fy} &= \frac{v_1 \cos(\theta_1 - \varphi)*(m_1-m_2) + 2m_2 v_2 \cos(\theta_2 - \varphi)}{m_1+m_2} \sin(\varphi) + v_1 \sin(\theta_1 - \varphi) \sin(\varphi + \frac{\pi}{2}) \\
+v_{2fx} &=\frac{v_2 \cos(\theta_2 - \varphi)*(m_2-m_1) + 2m_1 v_1 \cos(\theta_1 - \varphi)}{m_1+m_2} \cos(\varphi) + v_2 \sin(\theta_2 - \varphi) \cos(\varphi + \frac{\pi}{2}) \\
+v_{2fy} &= \frac{v_2 \cos(\theta_2 - \varphi)*(m_2-m_1) + 2m_1 v_1 \cos(\theta_1 - \varphi)}{m_1+m_2} \sin(\varphi) + v_2 \sin(\theta_2 - \varphi) \sin(\varphi + \frac{\pi}{2}) 
 \end{aligned}
 \end{equation}
 \subsection{Body with edge collision}
@@ -136,5 +136,10 @@ collide(other) {
 }
 \end{lstlisting}
 \section{Conclusion}
+\begin{itemize}
+	\item Principle of energy conservation is preserved
+	\item Simulation don't consider friction
+	\item Only circular bodies are supported
+\end{itemize}
 
 \end{document}          
