@@ -173,7 +173,7 @@ Taking both figures into consideration we can conclude that it does not matter f
 \gamma &= 360^{\circ} - \beta 
 \end{aligned}
 \end{equation}
-In this scenarios we can observe the very similar thing as it was discovered in vertical edges. We can calculate resulting angle using the same equation for bouncing from top and bottom edge.
+In this scenarios, we can observe the very similar thing as it was discovered in vertical edges. We can calculate resulting angle using the same equation for bouncing from the top and bottom edge.
 \begin{equation}
 \begin{aligned}
 \label{eq:horizontal_edge}
@@ -219,11 +219,44 @@ collide(other) {
 	this.new_vy = n * Math.sin(ca) / d + v1 * Math.sin(a1 - ca) * Math.cos(ca);
 }
 \end{lstlisting}
+\newpage
+What is more, every time we check if collision with some edge happen.
+\begin{lstlisting}
+    isOutOfBoardEdge(pos, boardEdgeSize) {
+        return pos + this.r >= boardEdgeSize || pos - this.r <= 0;
+    }
+
+    bounceFromBoardEdge(cvnWidth, cvnHeight){
+        if(this.isOutOfBoardEdge(this.x, cvnWidth)){
+            this.updateAfterBounceFromEdge(Math.PI - this.getAngle());
+        }
+        if(this.isOutOfBoardEdge(this.y , cvnHeight)){
+            this.updateAfterBounceFromEdge(2*Math.PI - this.getAngle());
+        }
+    }
+\end{lstlisting}
+
+First \verb!if! statement check if center position of considered ball plus its radius exceed canvas horizontally. In other words, it checks if this ball collides with vertical edges. 
+ 
+Second \verb!if! statement works very similarly but checks eventual collisions with horizontal edges.
+
+In both cases, when they happen, movement direction is changed basing on resulting angle after bouncing.
+
+\begin{lstlisting}
+    updateAfterBounceFromEdge(resultedAngle) {
+        let velocity = Math.sqrt(Math.pow(this.vx,2) + Math.pow(this.vy,2));
+        this.vx = this.calculateVx(velocity, resultedAngle);
+        this.vy = this.calculateVy(velocity, resultedAngle);
+    }
+    calculateVx(velocity, angle) {
+        return  velocity * Math.cos(angle);
+    }
+    calculateVy(velocity, angle) {
+        return  velocity * Math.sin(angle);
+    }
+
+\end{lstlisting}
 \section{Conclusion}
-\begin{itemize}
-	\item Principle of energy conservation is preserved
-	\item Simulation don't consider friction
-	\item Only circular bodies are supported
-\end{itemize}
+This simulation achieved target goal. Non-central collision of two balls is presented in a clear way by preserving physical principles such as the principle of energy conservation and the law of reflection. We have not taken into consideration the friction forces in order to simplify simulation and focus mainly on collision. Thanks to the fact that it is implemented in javascript it does not require specific prepared environment. It just can be opened in any web-browser where each ball can be placed everywhere we want and mass of each ball can be set. 
 
 \end{document}          
