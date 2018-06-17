@@ -101,6 +101,90 @@ v_{2fy} &= \frac{v_2 \cos(\theta_2 - \varphi)*(m_2-m_1) + 2m_1 v_1 \cos(\theta_1
 \end{aligned}
 \end{equation}
 \subsection{Body with edge collision}
+Calculating resulting angle $\gamma$ we were basing on basics of geometry and the law of reflection witch says that the angle of incidence equals the angle of reflection. Original and resulting angle is always related to the horizontal axis. 
+\subsubsection{Vertical edges}
+\begin{figure}[H]
+	\centering
+	\includegraphics[height=0.4\linewidth]{rightEdge}
+	\caption{Bounce from right edge}
+	\label{fig:right_edge}
+	\end{figure}
+	\begin{equation}
+\begin{aligned}
+\label{eq:right_edge}
+\gamma = 90^{\circ} + (90^{\circ} - \alpha) = 180^{\circ} - \alpha
+\end{aligned}
+\end{equation}
+\begin{figure}[H]
+	\centering
+	\includegraphics[height=0.4\linewidth]{leftEdge}
+	\caption{Bounce from left edge}
+	\label{fig:left_edge}
+\end{figure}
+\begin{equation}
+\begin{aligned}
+\label{eq:left_edge}
+\alpha & = \beta - 180^{\circ}\\
+\gamma & = 270^{\circ}+(90^{\circ}-\alpha) = 360^{\circ} - \alpha \\
+\gamma & = 360^{\circ} - \beta + 180^{\circ} = 180^{\circ} - \beta
+\end{aligned}
+\end{equation}
+Taking both figures into consideration we can conclude that it does not matter from which edge ball will bounce, it can be always calculated from the same equation.
+\begin{equation}
+\begin{aligned}
+\label{eq:vertical_edge}
+\gamma = 180^{\circ} - \beta
+\end{aligned}
+\end{equation}
+\begin{align*}
+\text{where} \\
+\beta -& \text{~~Value of angle before edge collision} \\
+\gamma -& \text{~~Value of angle after edge collision}
+\end{align*}
+\subsubsection{Horizontal edges}
+\begin{figure}[H]
+	\centering
+	\includegraphics[height=0.4\linewidth]{topEdge}
+	\caption{Bounce from top edge}
+	\label{fig:top_edge}
+	\end{figure}
+\begin{equation}
+\begin{aligned}
+\label{eq:top_edge}
+\alpha &= \beta - 270^{\circ} \\
+\gamma &= 90^{\circ} - \alpha \\
+\gamma &= 90^{\circ} + 270^{\circ} - \beta \\
+\gamma &= 360^{\circ} - \beta
+\end{aligned}
+\end{equation}
+\begin{figure}[H]
+	\centering
+	\includegraphics[height=0.4\linewidth]{bottomEdge}
+	\caption{Bounce from bottom edge}
+	\label{fig:bottom_edge}
+\end{figure}
+
+\begin{equation}
+\begin{aligned}
+\label{eq:bottom_edge}
+\alpha &= \beta - 90^{\circ} \\
+\gamma &= 180^{\circ} + 90^{\circ} - \alpha \\
+\gamma &= 270^{\circ} + 90^{\circ} - \beta \\
+\gamma &= 360^{\circ} - \beta 
+\end{aligned}
+\end{equation}
+In this scenarios we can observe the very similar thing as it was discovered in vertical edges. We can calculate resulting angle using the same equation for bouncing from top and bottom edge.
+\begin{equation}
+\begin{aligned}
+\label{eq:horizontal_edge}
+\gamma = 360^{\circ} - \beta
+\end{aligned}
+\end{equation}
+\begin{align*}
+\text{where} \\
+\beta -& \text{~~Value of angle before edge collision} \\
+\gamma -& \text{~~Value of angle after edge collision}
+\end{align*}
 \section{Implementation}
 Simulation is implemented in JavaScript using p5js library to render results on canvas. Each ball is moved each frame based on their current velocity,
 \begin{lstlisting}
